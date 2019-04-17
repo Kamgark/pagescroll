@@ -1,268 +1,114 @@
-.wrapper {
-  display: flex;
-  width: 100%;
+html {
+  scroll-behavior: smooth;
 }
-#sidebar {
-  min-width: 250px;
-  max-width: 250px;
-  min-height: 100vh;
-}
-
-a[data-toggle="collapse"] {
-  position: relative;
-}
-
-.dropdown-toggle::after {
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-}
-@media (max-width: 768px) {
-  #sidebar {
-    min-width: 90px;
-    max-width: 90px;
-    min-height: 100vh;
-}
-#sidebar .sidebar-header {
-  padding: 12px!important;
-}
-#sidebar .sidebar-header h3{
-  font-size: 16px;
-}
-#sidebar ul p {
-  font-size: 14px;
-}
-#sidebar ul li a {
-  font-size: 0.8em!important;
-}
-.skew-button span {
-  padding: 13px 5px;
-  font-size: 10px;
-}
-.skew-button {
-  margin-top: 24%!important;
-  margin-left: 30%!important;
-}
-p {
-  font-size: 0.7em;
-  line-height: 1.7em;
-}
-}
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #f7f7f7;
-}
-
-p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-}
-
-a, a:hover, a:focus {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-#sidebar {
-  width: 250px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  z-index: 999;
-  background: #4c4e58;
-  color: #fff;
-  transition: all 0.3s;
-}
-
-#sidebar .sidebar-header {
-    padding: 20px;
-    background: #444448;
-}
-
-#sidebar ul.components {
-    padding: 20px 0;
-}
-
-#sidebar ul p {
-    color: #fff;
-    padding: 10px;
-}
-
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-}
-#sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
-}
-
-#sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #444448;
-}
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #444448;
-}
-#content{
-  width: 80%;
+.layout {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  width: 85%;
   margin-left: auto;
+  /* this breaks position sticky in Firefox */
+  /* overflow-x: hidden; */
 }
-.margins{
-  margin:50px 0;
+header {
+  grid-column: 1 / 3;
+  background: #455A64;
+  color: white;
+  padding: 4rem;
+  text-align: center;
 }
-/* button animation */
-.skew-button {
-	cursor: pointer;
-	outline: none;
-	transform: translate3d(-50%, -50%, 0);
-	backface-visibility: hidden;
-	position: relative;
-	display: inline-block;
-	padding: 0;
-	background-color: transparent;
-	border: none;
-	font: 1.3rem 'Anton', sans-serif;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-  color: #ffffff;
-  margin-top: 7%;
-  margin-left: 20%;
-
+nav {
+  white-space: nowrap;
+  width: 200px;
+  background: rgb(0,0,0);
+background: linear-gradient(0deg, rgba(0,0,0,1) 26%, rgba(30,38,42,1) 75%, rgba(55,65,75,1) 100%);
+position: fixed;
+height: 100vh;
+top: 0;
+left: 0;
 }
-	.skew-button span {
-		transform: translate3d(0, 0, 0);
-		backface-visibility: hidden;
-		position: relative;
-		display: block;
-		width: 100%;
-		height: 100%;
-		padding: 20px 50px;
-		z-index: 3;
-	}
-	.skew-button:before,
-	span:before {
-		content: '';
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%) skewX(-20deg);
-		width: 100%;
-		height: 50px;
-		border: 1px solid #0e3876;
-		z-index: 2;
-	}
-	
-	.skew-button span:before {
-		display: block;
-		transform: translate(-50%, -50%) skew(-20deg);
-		transform-origin: center center;
-		z-indeX: -1;
-	}
-	
-	.skew-button:after {
-		transition: all 100ms ease-out;
-		content: '';
-		position: absolute;
-		left: 0;
-		top: 0;
-		transform: skewX(-20deg) scaleX(0);
-		width: 100%;
-		height: 100%;
-		background-color: #0e3876;
-		border: 1px solid transparent;
-		z-index: 1;
-	}
-	
-    .skew-button:hover	span:before {
-			animation: fill .5s ease-out;
-			animation-fill-mode: forwards;
-		}
-		
-    .skew-button:hover:after {
-			animation: swoosh .7s ease-in;
-		}
-    
-      .skew-button:active:before {
-			background-color: darken(#0e3876, 20%);
+nav h1{
+  color: white;
+  padding: 20% 7%;
+  font-size: 24px;
+  border-bottom: 1px solid white;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* Only stick if you can fit */
+@media (max-width: 750px) {
+  nav{
+    width: 100px;
   }
-  @keyframes swoosh {
-    0% {
-      transform-origin: left center;
-    }
-    
-    20% {
-      transform: skewX(-20deg) scaleX(1);
-      transform-origin: left center;
-    }
-    
-    21% {
-      transform-origin: right center;
-    }
-    
-    50% {
-      transform: skewX(-20deg) scaleX(0);
-      transform-origin: right center;
-    }
+  nav ul {
+    top: 0;
   }
-  
-  @keyframes fill {
-    0% {
-      background-color: rgba(#0e3876, 0);
-    }
-    
-    20% {
-      opacity: .5;
-      border-width: 15px;
-      border-color: darken(#0e3876, 10%);
-    }
-    
-    100% {
-      opacity: .5;
-      border-width: 1px;
-      background-color: rgba(#0e3876, 0.5);
-    }
+  nav h1 {
+    font-size: 13px;
+}
+}
+@media (min-width:750px) and (max-width: 768px) {
+  nav{
+    width: 120px;
   }
-  #div-1{
-    background-image: url("./images/background1.jpg");
-    background-position: center;
-    background-size: cover;
-    padding: 30px;
-  }
-  #div-2{
-    background-image: url("./images/background2.jpg");
-    background-position: center;
-    background-size: cover;
-    padding: 30px;
-  }
-  #div-3{
-    background-image: url("./images/background3.jpg");
-    background-position: center;
-    background-size: cover;
-    padding: 30px;
-  }
-  #div-4{
-    background-image: url("./images/background4.jpg");
-    background-position: center;
-    background-size: cover;
-    padding: 30px;
-  }
-  .margins h1{
-    color: #fafafa
-  }
-  .margins p{
-    color: #f7f7f7;
-  }
+  nav h1 {
+    font-size: 16px;
+}
+}
+nav ul li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: white;
+  text-decoration: none!important;
+}
+nav ul li a:hover {
+  background: black;
+}
+nav ul li a.active {
+  background: black;
+}
+main {
+  padding-bottom: 40rem;
+  background: black;
+}
+section {
+  padding: 4rem;
+  margin: 0 0 2rem 0;
+}
+#section-1{
+  background-image: url("./images/background1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+#section-2{
+  background-image: url("./images/background2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+#section-3{
+  background-image: url("./images/background3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+#section-4{
+  background-image: url("./images/background4.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+#section-5{
+  background-image: url("./images/background1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
